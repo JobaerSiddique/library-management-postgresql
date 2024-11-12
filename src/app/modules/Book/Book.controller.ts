@@ -61,10 +61,13 @@ const deleteBook = catchAsync(async(req,res)=>{
         data: ''
     })
 })
+
+
 export const BookController = {
     createBook,
     getAllBook,
     getBookByID,
     updateBook,
-    deleteBook
+    deleteBook,
+    
 }

@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client"
-
+import { subDays, differenceInDays } from "date-fns";
 
 
 const prisma = new PrismaClient()
@@ -30,10 +30,35 @@ const createBorrowDB= async(payload:any)=>{
     return result;
 }
 
+const overdueBorrowsDB = async()=>{
+    const overDays = subDays(new Date(),14)
 
+
+    const overBorrows = await prisma.borrowRecoard.findMany({
+        where:{
+            returnDate:null,
+            borrowDate:{
+                lt:overDays
+            }
+        },
+        include:{
+            book:{select:{title:true}},
+            member:{select:{name:true}}
+        }
+    })
+    const result = overBorrows.map((borrow) => ({
+        borrowId: borrow.borrowId,
+        bookTitle: borrow.book.title,
+        borrowerName: borrow.member.name,
+        overdueDays: differenceInDays(new Date(), borrow.borrowDate) - 14,
+      }));
+      return result;
+    
+}
 
 
 
 export const BorrowService = {
-    createBorrowDB
+    createBorrowDB,
+    overdueBorrowsDB
 }

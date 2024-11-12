@@ -17,9 +17,13 @@ const createBorrow = catchAsync(async(req,res)=>{
 })
 
 
-
+const overdueBorrows  = catchAsync(async(req,res)=>{
+    const result = await BorrowService.overdueBorrowsDB()
+    console.log(result);
+})
 
 
 export const BorrowController = {
-    createBorrow
+    createBorrow,
+    overdueBorrows
 }
