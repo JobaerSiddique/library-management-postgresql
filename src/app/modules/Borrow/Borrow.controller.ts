@@ -19,7 +19,12 @@ const createBorrow = catchAsync(async(req,res)=>{
 
 const overdueBorrows  = catchAsync(async(req,res)=>{
     const result = await BorrowService.overdueBorrowsDB()
-    console.log(result);
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:"Overdue borrows fetched successfully",
+        data:result
+    })
 })
 
 
