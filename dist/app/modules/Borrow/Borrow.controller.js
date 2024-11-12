@@ -27,6 +27,16 @@ const createBorrow = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0
         data: result
     });
 }));
+const overdueBorrows = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield Borrow_service_1.BorrowService.overdueBorrowsDB();
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Overdue borrows fetched successfully",
+        data: result
+    });
+}));
 exports.BorrowController = {
-    createBorrow
+    createBorrow,
+    overdueBorrows
 };

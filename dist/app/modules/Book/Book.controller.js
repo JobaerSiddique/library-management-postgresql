@@ -72,5 +72,5 @@ exports.BookController = {
     getAllBook,
     getBookByID,
     updateBook,
-    deleteBook
+    deleteBook,
 };

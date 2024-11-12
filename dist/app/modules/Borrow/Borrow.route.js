@@ -8,4 +8,5 @@ const express_1 = __importDefault(require("express"));
 const Borrow_controller_1 = require("./Borrow.controller");
 const router = express_1.default.Router();
 router.post('/', Borrow_controller_1.BorrowController.createBorrow);
+router.get('/overdue', Borrow_controller_1.BorrowController.overdueBorrows);
 exports.BorrowRoutes = router;
