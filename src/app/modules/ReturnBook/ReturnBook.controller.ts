@@ -14,12 +14,10 @@ const returnBooks = catchAsync(async(req,res)=>{
     })
 })
 
-const overdueBorrows = catchAsync(async(req,res)=>{
 
-})
 
 
 export const ReturnBookController= {
     returnBooks,
-    overdueBorrows
+    
 }

@@ -11,7 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReturnBookService = void 0;
 const client_1 = require("@prisma/client");
-const date_fns_1 = require("date-fns");
 const prisma = new client_1.PrismaClient();
 const returnBookDB = (borrowId) => __awaiter(void 0, void 0, void 0, function* () {
     const findBorrowId = yield prisma.borrowRecoard.findUniqueOrThrow({
@@ -41,22 +40,6 @@ const returnBookDB = (borrowId) => __awaiter(void 0, void 0, void 0, function* (
             }
         }
     });
-});
-const overdueBorrowsDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const overDays = (0, date_fns_1.subDays)(new Date(), 14);
-    const overBorrows = yield prisma.borrowRecoard.findMany({
-        where: {
-            returnDate: null,
-            borrowDate: {
-                lt: overDays
-            }
-        },
-        include: {
-            book: { select: { title: true } },
-            member: { select: { name: true } }
-        }
-    });
-    console.log(overBorrows);
 });
 exports.ReturnBookService = {
     returnBookDB

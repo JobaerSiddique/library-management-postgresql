@@ -27,9 +27,6 @@ const returnBooks = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0,
         data: ''
     });
 }));
-const overdueBorrows = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-}));
 exports.ReturnBookController = {
     returnBooks,
-    overdueBorrows
 };
