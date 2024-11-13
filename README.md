@@ -5,7 +5,7 @@
 The **Library Management System API** is a backend API that helps manage library resources such as books, authors, and users. This system allows users to search, borrow, and return books, while also enabling library admins to manage the library's inventory. The project provides a RESTful API that interacts with a PostgreSQL database and is built using TypeScript, Node.js, Express.js, and Prisma ORM for database management.
 
 ## Live URL
-```bash
+
 Live API URL:https://library-management-postgresql-2w4u.vercel.app/  
 
 
