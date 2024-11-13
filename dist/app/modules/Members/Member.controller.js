@@ -21,7 +21,7 @@ const createMember = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0
     const data = req.body;
     const result = yield Member_service_1.MemberService.createMemberDB(data);
     (0, sendResponse_1.default)(res, {
-        statusCode: http_status_1.default.OK,
+        statusCode: http_status_1.default.CREATED,
         success: true,
         message: "Member created successfully",
         data: result

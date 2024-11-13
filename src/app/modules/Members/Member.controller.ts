@@ -9,7 +9,7 @@ const createMember = catchAsync(async(req,res)=>{
     const data = req.body;
     const result = await MemberService.createMemberDB(data);
     sendResponse(res,{
-        statusCode: httpStatus.OK,
+        statusCode: httpStatus.CREATED,
         success: true,
         message: "Member created successfully",
         data: result

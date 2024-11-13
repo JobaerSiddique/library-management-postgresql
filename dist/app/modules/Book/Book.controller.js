@@ -21,7 +21,7 @@ const createBook = (0, catchAsync_1.catchAsync)((req, res) => __awaiter(void 0, 
     const data = req.body;
     const result = yield Book_service_1.BookService.createBookDB(data);
     (0, sendResponse_1.default)(res, {
-        statusCode: http_status_1.default.OK,
+        statusCode: http_status_1.default.CREATED,
         success: true,
         message: "Book created successfully",
         data: result
