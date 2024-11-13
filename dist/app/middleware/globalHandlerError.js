@@ -22,6 +22,7 @@ const globalErrorHandler = (err, req, res, next) => {
     }
     res.status(statusCode).json({
         success,
+        status: statusCode,
         message,
         error
     });
