@@ -26,6 +26,7 @@ async function main() {
         console.log(error);
         exitHandler();
     })
+   
 };
-
+export default app;
 main();

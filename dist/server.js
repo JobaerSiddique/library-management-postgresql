@@ -38,4 +38,5 @@ function main() {
     });
 }
 ;
+exports.default = app_1.default;
 main();
