@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,7 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export const catchAsync = (fn) => {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.catchAsync = void 0;
+const catchAsync = (fn) => {
     return (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             yield fn(req, res, next);
@@ -17,3 +20,4 @@ export const catchAsync = (fn) => {
         }
     });
 };
+exports.catchAsync = catchAsync;

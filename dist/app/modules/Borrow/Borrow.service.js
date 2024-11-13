@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,9 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { PrismaClient } from "@prisma/client";
-import { subDays, differenceInDays } from "date-fns";
-const prisma = new PrismaClient();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BorrowService = void 0;
+const client_1 = require("@prisma/client");
+const date_fns_1 = require("date-fns");
+const prisma = new client_1.PrismaClient();
 const createBorrowDB = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { bookId, memberId } = payload;
     const findBook = yield prisma.book.findUniqueOrThrow({
@@ -34,7 +37,7 @@ const createBorrowDB = (payload) => __awaiter(void 0, void 0, void 0, function* 
     return result;
 });
 const overdueBorrowsDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const overDays = subDays(new Date(), 14);
+    const overDays = (0, date_fns_1.subDays)(new Date(), 14);
     const overBorrows = yield prisma.borrowRecoard.findMany({
         where: {
             returnDate: null,
@@ -51,11 +54,11 @@ const overdueBorrowsDB = () => __awaiter(void 0, void 0, void 0, function* () {
         borrowId: borrow.borrowId,
         bookTitle: borrow.book.title,
         borrowerName: borrow.member.name,
-        overdueDays: differenceInDays(new Date(), borrow.borrowDate) - 14,
+        overdueDays: (0, date_fns_1.differenceInDays)(new Date(), borrow.borrowDate) - 14,
     }));
     return result;
 });
-export const BorrowService = {
+exports.BorrowService = {
     createBorrowDB,
     overdueBorrowsDB
 };

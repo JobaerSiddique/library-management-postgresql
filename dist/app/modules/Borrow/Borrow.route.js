@@ -1,6 +1,12 @@
-import express from 'express';
-import { BorrowController } from './Borrow.controller';
-const router = express.Router();
-router.post('/', BorrowController.createBorrow);
-router.get('/overdue', BorrowController.overdueBorrows);
-export const BorrowRoutes = router;
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BorrowRoutes = void 0;
+const express_1 = __importDefault(require("express"));
+const Borrow_controller_1 = require("./Borrow.controller");
+const router = express_1.default.Router();
+router.post('/', Borrow_controller_1.BorrowController.createBorrow);
+router.get('/overdue', Borrow_controller_1.BorrowController.overdueBorrows);
+exports.BorrowRoutes = router;
