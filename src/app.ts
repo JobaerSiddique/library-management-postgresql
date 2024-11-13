@@ -1,6 +1,7 @@
 import express from "express"
 import router from "./app/routes"
 import globalErrorHandler from "./app/middleware/globalHandlerError"
+import notFound from "./app/middleware/notFound"
 const app = express()
 
 
@@ -14,4 +15,5 @@ app.use('/api',router)
 
 
 app.use(globalErrorHandler)
+app.use(notFound)
 export default app;
