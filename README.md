@@ -6,7 +6,7 @@ The **Library Management System API** is a backend API that helps manage library
 
 ## Live URL
 
-[Live API URL]:(https://library-management-postgresql-2w4u.vercel.app/)  
+Live API URL:https://library-management-postgresql-2w4u.vercel.app/  
 
 
 ## Technology Stack & Packages
