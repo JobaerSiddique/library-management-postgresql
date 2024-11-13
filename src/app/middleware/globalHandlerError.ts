@@ -31,7 +31,7 @@ const globalErrorHandler = (err: any, req: Request, res: Response, next: NextFun
         success,
         status:statusCode,
         message,
-        error
+       
     })
 };
 

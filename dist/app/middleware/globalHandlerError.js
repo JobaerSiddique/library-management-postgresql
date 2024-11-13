@@ -24,7 +24,6 @@ const globalErrorHandler = (err, req, res, next) => {
         success,
         status: statusCode,
         message,
-        error
     });
 };
 exports.default = globalErrorHandler;
